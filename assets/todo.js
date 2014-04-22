@@ -81,6 +81,7 @@ data = data || {};
 
                             // Hiding Delete Area
                             $("#" + defaults.deleteDiv).hide();
+                            //$("#" + defaults.deleteDiv).show();
                     }
             });
         });
@@ -102,6 +103,7 @@ data = data || {};
 
                 // Hiding Delete Area
                 $("#" + defaults.deleteDiv).hide();
+                //$("#" + defaults.deleteDiv).show();
             }
         })
 
@@ -143,6 +145,7 @@ data = data || {};
             },
             stop: function() {
                 $("#" + defaults.deleteDiv).hide();
+                //$("#" + defaults.deleteDiv).show();
             },
 	        revert: "invalid",
 	        revertDuration : 200

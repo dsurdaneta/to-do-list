@@ -79,13 +79,17 @@ h3{
 
 #delete-div{
     display: none;
+    position: absolute;
+    float:right;
     background-color: #fff;
-    border: 3px dotted #000;
+    border: 3px dotted #000; 
     margin: 10px;
-    height: 75px;
-    line-height: 75px;
+    height: 55px;
+    min-width: 160px;
+    width: 180px;
+    line-height: 55px;
     text-align: center;
-    z-index: -4;
+   /* z-index: -4;*/
 }
 
 /****added styles****/
@@ -101,4 +105,8 @@ h3{
     /*background-color: #e3e3e3;*/
     border-color: #e7e7e7;   
     border-radius: 10px;    
+    width: 300px;
+    min-width: 300;
+    min-height: 75px;
+    /*border: 3px dotted #000;*/
 }

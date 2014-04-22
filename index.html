@@ -23,21 +23,28 @@
                                     <input type="text" placeholder="Description"/>
                                     <input type="text" id="datepicker" placeholder="Due Date (dd/mm/yyyy)" />
                                     <!--<input type="button" class="btn btn-primary" value="Add Task" onclick="todo.add();" />-->
-                                    <button type="button" class="btn btn-primary" onclick="todo.add();">
+                                    <button type="button" class="btn btn-primary btn-sm" onclick="todo.add();">
                                         <span class="glyphicon glyphicon-plus"></span> Add Task
                                     </button>
+
                                 </form>
+                                
+
                             <div class="container-fluid">
                         </nav>                        
                     </div>
 
                     <div class="col-md-4">
+                        <div class="task-form">
                         <!--<input type="button" class="btn btn-warning btn-lg" value="Clear All Tasks" onclick="todo.clear();" />-->
-                        <button type="button" class="btn btn-warning btn-lg" onclick="todo.clear();">
-                            <span class="glyphicon glyphicon-remove-sign"></span> Clear All Tasks
-                        </button>
+                            <button type="button" class="btn btn-warning btn-sm pull-right" onclick="todo.clear();">
+                                <span class="glyphicon glyphicon-remove-sign"></span> Clear Tasks
+                            </button>
+                            <div id="delete-div">
+                                <span class="glyphicon glyphicon-floppy-remove"></span> Drag Here to Delete
+                            </div>
+                        </div>
                     </div>
-                    
                 </div>
 
                 <div class="col-md-12">
@@ -67,9 +74,7 @@
                 </div>
 
                 <div class="col-md-12">                    
-                    <div id="delete-div">
-                        <span class="glyphicon glyphicon-floppy-remove"></span> Drag Here to Delete
-                    </div>
+                    
                 </div>
 <!--
                 <div class="task-list">
