@@ -12,20 +12,30 @@
         <div class="container"><!--<div id="container">-->
             <div class="row">
 
-            <!--<div id="header"> To Do List </div>-->
                 <div class="col-md-12">                    
                     <div id="header"> To Do List </div>
+
                     <div class="col-md-8">
-                        <form id="todo-form" class="form-inline">
-                            <input type="text" placeholder="Title" />
-                            <input type="text" placeholder="Description"/>
-                            <input type="text" id="datepicker" placeholder="Due Date (dd/mm/yyyy)" />
-                            <input type="button" class="btn btn-primary" value="Add Task" onclick="todo.add();" />
-                        </form>
+                        <nav class="navbar navbar-default">
+                            <div class="container-fluid">
+                                <form id="todo-form" class="navbar-form navbar-left">
+                                    <input type="text" placeholder="Title" />
+                                    <input type="text" placeholder="Description"/>
+                                    <input type="text" id="datepicker" placeholder="Due Date (dd/mm/yyyy)" />
+                                    <!--<input type="button" class="btn btn-primary" value="Add Task" onclick="todo.add();" />-->
+                                    <button type="button" class="btn btn-primary" onclick="todo.add();">
+                                        <span class="glyphicon glyphicon-plus"></span> Add Task
+                                    </button>
+                                </form>
+                            <div class="container-fluid">
+                        </nav>                        
                     </div>
 
                     <div class="col-md-4">
-                        <input type="button" class="btn btn-warning" value="Clear All Tasks" onclick="todo.clear();" />
+                        <!--<input type="button" class="btn btn-warning btn-lg" value="Clear All Tasks" onclick="todo.clear();" />-->
+                        <button type="button" class="btn btn-warning btn-lg" onclick="todo.clear();">
+                            <span class="glyphicon glyphicon-remove-sign"></span> Clear All Tasks
+                        </button>
                     </div>
                     
                 </div>
@@ -58,7 +68,7 @@
 
                 <div class="col-md-12">                    
                     <div id="delete-div">
-                        Drag Here to Delete
+                        <span class="glyphicon glyphicon-floppy-remove"></span> Drag Here to Delete
                     </div>
                 </div>
 <!--

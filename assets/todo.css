@@ -24,14 +24,15 @@ body {
 }
 
 .task-list{
-    /*width: 250px;*/
-    min-width: 320;
+    width: 300px;
+    min-width: 300;
     float: left;
-    margin: 0 5px;
+    margin: 5px;
     background-color: #e3e3e3;
     min-height: 240px;
     border-radius: 10px;
     padding-bottom: 15px;
+    z-index: 1;
 }
 
 .task-list input, .task-list textarea{
@@ -84,6 +85,7 @@ h3{
     height: 75px;
     line-height: 75px;
     text-align: center;
+    z-index: -4;
 }
 
 /****added styles****/
@@ -91,4 +93,12 @@ h3{
 /**keep task-list button margin**/
 .task-btn{
     margin: 5px;
+}
+
+.task-form{
+    margin: 0 5px;
+    background-color: #f8f8f8;
+    /*background-color: #e3e3e3;*/
+    border-color: #e7e7e7;   
+    border-radius: 10px;    
 }
