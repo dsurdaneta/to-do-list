@@ -1,0 +1,52 @@
+
+<!--add task nav-style form-->
+                        <form id="todo-form" class="form-inline">                              
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Title"/>
+                            </div>
+                            <div class="form-group">
+                            <!--Use onFocus() modal form to add description-->                                      
+                                <input type="text" class="form-control" placeholder="Description"/>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" id="datepicker" class="form-control" placeholder="Due Date (dd/mm/yyyy)">
+                            </div>
+                            <div class="form-group">
+                                <input type="button" class="btn btn-primary btn-sm" value="Add Task" onclick="todo.add();" />
+                            </div>
+                            <div class="form-group">
+                                <input type="button" class="btn btn-warning btn-sm" value="Clear Data" onclick="todo.clear();" />
+                            </div>
+                        </form>
+
+
+<nav class="navbar navbar-default" role="navigation">
+                            <div class="container-fluid">
+                                <div class="navbar-header">
+                                    <p class="navbar-brand">Add a task</p>
+                                </div>
+                                <form class="navbar-form navbar-left" role="form">
+                                    <div class="form-group">
+                                      <input type="text" class="form-control" placeholder="Title"/>
+                                    </div>
+                                    <div class="form-group">
+                                    <!--Use onFocus() modal form to add description-->                                      
+                                      <input class="form-control" placeholder="Description"/>
+                                    </div>
+                                    <div class="form-group">
+                                      <input type="text" id="datepicker" class="form-control" placeholder="Due Date (dd/mm/yyyy)">
+                                    </div>
+                                    <div class="form-group">
+                                      <input type="button" class="btn btn-primary task-btn btn-sm" value="Add Task"  />
+                                    </div>
+                                    <div class="form-group">
+                                      <input type="button" class="btn btn-warning task-btn btn-sm" value="Clear Data" />
+                                    </div>                                      
+                                </form>
+                                <!--delete area-->
+                                <div id="delete-div">
+                                    Drag Here to Delete
+                                </div>
+
+                            </div>
+                        </nav>
