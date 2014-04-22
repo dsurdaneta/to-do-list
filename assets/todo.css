@@ -24,7 +24,8 @@ body {
 }
 
 .task-list{
-    width: 250px;
+    /*width: 250px;*/
+    min-width: 320;
     float: left;
     margin: 0 5px;
     background-color: #e3e3e3;
@@ -45,7 +46,9 @@ body {
 .todo-task{
     border-radius: 5px;
     background-color: #fff;
-    width: 230px;
+    /*width: 230px;*/
+    min-width: 230px;
+    max-width: 320px;
     margin: 5px;
     padding: 5px;
 }
@@ -81,4 +84,11 @@ h3{
     height: 75px;
     line-height: 75px;
     text-align: center;
+}
+
+/****added styles****/
+
+/**keep task-list button margin**/
+.task-btn{
+    margin: 5px;
 }
