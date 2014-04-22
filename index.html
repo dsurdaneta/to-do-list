@@ -20,7 +20,7 @@
                             <div class="container-fluid">
                                 <form id="todo-form" class="navbar-form navbar-left">
                                     <input type="text" placeholder="Title" />
-                                    <input type="text" placeholder="Description"/>
+                                    <input type="text" id="task-description" placeholder="Description"/>
                                     <input type="text" id="datepicker" placeholder="Due Date (dd/mm/yyyy)" />
                                     <!--<input type="button" class="btn btn-primary" value="Add Task" onclick="todo.add();" />-->
                                     <button type="button" class="btn btn-primary btn-sm" onclick="todo.add();">
@@ -94,6 +94,17 @@
                 </div>-->
 
                 <div style="clear:both;"></div>
+                <!--dialog form for dscription-->
+                <div id="dialog-form" title="Write the task description">
+                    <p class="validateTips">All form fields are required.</p>
+                    <form>
+                        <fieldset>
+                            <!--<label for="name">Write the task description</label>-->
+                            <textarea placeholder="Description" width="250px" height="100px" class="text ui-widget-content ui-corner-all" id="dialog-description" value=""></textarea>
+                        </fieldset>
+                    </form>
+                </div>
+
     	          <script type="text/javascript" src="lib/jQuery/jquery.min.js"></script>
                   <!--<script type="text/javascript" src="lib/Bootstrap/bootstrap.min.js"></script>-->
                 <script type="text/javascript" src="lib/Bootstrap3/js/bootstrap.min.js"></script>
