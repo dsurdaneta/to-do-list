@@ -1,0 +1,95 @@
+<!--
+http://www.buildfortheweb.com/2010/11/25/create-a-to-do-list-with-jquery/
+-->
+<html>
+	<head>
+		<style>
+			html {
+				font: small/1.4 "Lucida Grande", Tahoma, sans-serif;
+			}
+			
+			div.enter_todo {
+				margin: 20px 50px;
+				padding: 7px 20px;
+				height:25px;
+				width:560px;
+				background: #eee;
+				border:1px solid #aaa;
+			}
+			
+			div.todo_list {
+				margin: 10px 50px;				
+			}
+			
+			div.todo_list > div.todo {
+				background: #eeeeff;
+				min-width:350px;
+				max-width:600px;
+				min-height:25px;	
+				padding-top:2px;	
+				margin-top:1px;
+			}
+			
+			div.todo_list > div.todo > div {
+				float:left;		
+			}
+			
+			div.todo_list > div.todo > div.todo_description {
+				margin-left:5px;
+			}
+			
+			div.todo_list > div.checked {
+				text-decoration: line-through;
+				background: #eee;
+			}
+
+			.checked {
+				text-decoration: line-through;
+				background: #eee;
+				color: #c4c4c4;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="enter_todo">
+			<form id="todo_form" action="/jquery_todos.html" method="POST">
+				<input type="text" size="55" id="todo_description" name="todo_description">
+				<input type="submit" id="add_todo" value="Add">
+			</form>
+		</div>
+		
+		<div class="todo_list">
+		</div>
+<!--Scripts-->
+		<script type="text/javascript" src="lib/jQuery/jquery.min.js"></script>
+		<script type="text/javascript">
+			$(document).ready( function() {		
+			
+				$('#add_todo').click( function() {
+					var todoDescription = $('#todo_description').val();
+					
+					$('.todo_list').prepend('<div class="todo">'
+						+ '<div>'
+							+ '<input type="checkbox" class="check_todo" name="check_todo"/>'
+						+ '</div>'
+						+ '<div class="todo_description">'
+							+ todoDescription
+						+ '</div>'
+					+ '</div>');
+					
+					$('#todo_form')[0].reset();
+					
+					$('.check_todo').unbind('click');
+					$('.check_todo').click( function() {
+						var todo = $(this).parent().parent();
+						todo.toggleClass('checked');
+					});
+					return false;
+								
+				});  
+				
+				
+			});
+		</script>
+	</body>
+</html>
