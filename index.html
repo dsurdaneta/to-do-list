@@ -13,7 +13,18 @@
             <div class="row">
 
                 <div class="col-md-12">                    
-                    <div id="header"> To Do List </div>
+                    <div id="header"> To Do List 
+                        <div class="hidden-sm hidden-xs">
+                            <button type="button" class="btn btn-success" id="btn-instruction-desktop" >
+                                <span class="glyphicon glyphicon-list-alt"></span> Instructions
+                            </button>
+                        </div>
+                        <div class="visible-sm visible-xs">
+                            <button type="button" class="btn btn-success" id="btn-instruction-mobile" >
+                                <span class="glyphicon glyphicon-list-alt"></span> Instructions
+                            </button>
+                        </div>
+                    </div>
 
                     <div class="col-md-8 hidden-sm hidden-xs">
                         <br/>
@@ -39,7 +50,7 @@
                         <div class="task-form">
                         <!--<input type="button" class="btn btn-warning btn-lg" value="Clear All Tasks" onclick="todo.clear();" />-->
                             <button type="button" class="btn btn-warning btn-sm pull-right" onclick="todo.clear();">
-                                <span class="glyphicon glyphicon-remove-sign"></span> Clear Tasks
+                                <span class="glyphicon glyphicon-remove-sign"></span> Clear All
                             </button>
                             
                             <div id="delete-div">
@@ -47,7 +58,7 @@
                             </div>
                             <div class="visible-sm visible-xs">
                                 <br/><br/>
-                                <button type="button" class="btn btn-primary btn-sm pull-right" >
+                                <button type="button" class="btn btn-primary btn-sm pull-right" id="mobile-add-task" >
                                     <span class="glyphicon glyphicon-plus"></span> Add Task
                                 </button>
                             </div>
@@ -104,16 +115,65 @@
                 <div style="clear:both;"></div>
                 <!--dialog form for dscription-->
                 <div id="dialog-form" title="Write the task description">
-                    <p class="validateTips">All form fields are required.</p>
-                    <form>
+                    <!--<p class="validateTips">All form fields are required.</p>-->
+                    <form id="mobile-form">
                         <fieldset>
-                            <!--<label for="name">Write the task description</label>-->
-                            <textarea placeholder="Description" width="250px" height="100px" class="text ui-widget-content ui-corner-all" id="dialog-description" value=""></textarea>
+                            <input type="text" placeholder="Title" />
+                            <textarea placeholder="Description"></textarea>
+                            <input type="text" id="mobile-datepicker" placeholder="Due Date (dd/mm/yyyy)" />
+                            <button type="button" class="btn btn-primary btn-sm pull-right" onclick="todo.addMobile();">
+                                <span class="glyphicon glyphicon-ok-circle"></span> Add
+                            </button>
                         </fieldset>
-                        <button type="button" class="btn btn-warning btn-sm pull-right" onclick="todo.clear();">
-                            <span class="glyphicon glyphicon-remove-sign"></span> Clear Tasks
-                        </button>
+                        
                     </form>
+                </div>
+                <!--dialog instructions mobile-->
+                <div id="instructions-mobile" title="To do list instructions">
+                    <p>To add a task:</p>
+                    <ol>
+                        <li>Click/Touch the <strong>Add Task</strong> button</li>
+                        <li>Fill the form.</li>
+                        <li>Click/Touch the <strong>Add</strong> button.</li>
+                        <li>Repeat as many times you want</li>
+                        <li>Click/Touch the <strong>Done</strong> button</li>
+                    </ol>
+                    <p>Move a task to another category:</p>
+                    <ol>
+                        <li>Just dragg the task down (or up) from the current category box to the corresponding category box.</li>
+                    </ol>
+                    <p>Clear or delete all the task:</p>
+                    <ol>
+                        <li>Click/Touch the <strong>Clear All</strong> button </li>                        
+                    </ol>
+                    <p>Delete a single task:</p>
+                    <ol>
+                        <li>When you are dragging a task, a delete box will appear next to the <strong>Clear All</strong> button.</li>
+                        <li>Drop the task in that magic box.</li>
+                    </ol>
+                </div>
+                <!--dialog instructions desktop-->
+                <div id="instructions-desktop" title="To do list instructions">
+                    <p>To add a task:</p>
+                    <ol>
+                        <li>Fill the form.</li>
+                        <li>Click/Touch the <strong>Add Task</strong> button</li>
+                        <li>Repeat as many times you want</li>
+                        <li>Click/Touch the <strong>close</strong> button or press the <strong>escape [ESC] key</strong> </li>
+                    </ol>
+                    <p>Move a task to another category:</p>
+                    <ol>
+                        <li>Just dragg the task down (or up) from the current category box to the corresponding category box.</li>
+                    </ol>
+                    <p>Clear or delete all the task:</p>
+                    <ol>
+                        <li>Click/Touch the <strong>Clear All</strong> button </li>                        
+                    </ol>
+                    <p>Delete a single task:</p>
+                    <ol>
+                        <li>When you are dragging a task, a delete box will appear next to the <strong>Clear All</strong> button.</li>
+                        <li>Drop the task in that magic box.</li>
+                    </ol>
                 </div>
 
     	          <script type="text/javascript" src="lib/jQuery/jquery.min.js"></script>
@@ -123,15 +183,79 @@
                 <script type="text/javascript" src="assets/todo.js"></script>
 
                 <script type="text/javascript">
+
+                //-Instruction Dialog
+                    $(function(){
+                        var dialogOpts = {
+                            autoOpen: false,
+                            minWidth: 350,
+                            position: ["center", 30],
+                            closeOnEscape: true,
+                            buttons: {
+                                Ok: function() {
+                                    $( this ).dialog( "close" );
+                                }
+                            }
+                        };
+                        $("#instructions-desktop").dialog(dialogOpts);
+                    });
+                    $( "#btn-instruction-desktop" ).click(function() {
+                        $( "#instructions-desktop" ).dialog( "open" );
+                    });
+                //-Date Picker
                     $( "#datepicker" ).datepicker();
                     $( "#datepicker" ).datepicker("option", "dateFormat", "dd/mm/yy");
-                    //month and year selectors
+                    //--month and year selectors
                     $( "#datepicker" ).datepicker( "option", "changeMonth", true  );
                     $( "#datepicker" ).datepicker( "option", "changeYear", true  );                    
 
                     $(".task-container").droppable();
                     $(".todo-task").draggable({ revert: "valid", revertDuration:200 });
                     todo.init();
+
+                //Mobile Only
+                //-Date Picker
+                    $( "#mobile-datepicker" ).datepicker();
+                    $( "#mobile-datepicker" ).datepicker("option", "dateFormat", "dd/mm/yy");
+                    //--month and year selectors
+                    $( "#mobile-datepicker" ).datepicker( "option", "changeMonth", true  );
+                    $( "#mobile-datepicker" ).datepicker( "option", "changeYear", true  );
+                //-Form Dialog
+                    $(function(){
+                        var dialogOpts = {
+                            autoOpen: false,
+                            maxWidth: 300,
+                            position: [20, 20],
+                            closeOnEscape: true,
+                            buttons: {
+                                Done: function() {
+                                    $( this ).dialog( "close" );
+                                }
+                            }
+                        };
+                        $("#mobile-form").dialog(dialogOpts);
+                    });
+                    $( "#mobile-add-task" ).click(function() {
+                        $( "#mobile-form" ).dialog( "open" );
+                    });
+                //-Instruction Dialog
+                    $(function(){
+                        var dialogOpts = {
+                            autoOpen: false,
+                            maxWidth: 350,
+                            position: ["left", "top"],
+                            closeOnEscape: true,
+                            buttons: {
+                                Ok: function() {
+                                    $( this ).dialog( "close" );
+                                }
+                            }
+                        };
+                        $("#instructions-mobile").dialog(dialogOpts);
+                    });
+                    $( "#btn-instruction-mobile" ).click(function() {
+                        $( "#instructions-mobile" ).dialog( "open" );
+                    });
                 </script>
 
         </div>
