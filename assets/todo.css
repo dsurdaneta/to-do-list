@@ -52,6 +52,7 @@ body {
     max-width: 320px;
     margin: 5px;
     padding: 5px;
+    z-index: 3;
 }
 
 .task-list input[type="button"]{
@@ -109,9 +110,10 @@ h3{
     min-width: 300;
     min-height: 75px;
     /*border: 3px dotted #000;*/
+    z-index: -1;
 }
 
-/*for the description dialog*/
+/**for the description dialog**/
 #dialog-form
 {
     display: none;

@@ -15,7 +15,8 @@
                 <div class="col-md-12">                    
                     <div id="header"> To Do List </div>
 
-                    <div class="col-md-8">
+                    <div class="col-md-8 hidden-sm hidden-xs">
+                        <br/>
                         <nav class="navbar navbar-default">
                             <div class="container-fluid">
                                 <form id="todo-form" class="navbar-form navbar-left">
@@ -40,8 +41,15 @@
                             <button type="button" class="btn btn-warning btn-sm pull-right" onclick="todo.clear();">
                                 <span class="glyphicon glyphicon-remove-sign"></span> Clear Tasks
                             </button>
+                            
                             <div id="delete-div">
                                 <span class="glyphicon glyphicon-floppy-remove"></span> Drag Here to Delete
+                            </div>
+                            <div class="visible-sm visible-xs">
+                                <br/><br/>
+                                <button type="button" class="btn btn-primary btn-sm pull-right" >
+                                    <span class="glyphicon glyphicon-plus"></span> Add Task
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -102,6 +110,9 @@
                             <!--<label for="name">Write the task description</label>-->
                             <textarea placeholder="Description" width="250px" height="100px" class="text ui-widget-content ui-corner-all" id="dialog-description" value=""></textarea>
                         </fieldset>
+                        <button type="button" class="btn btn-warning btn-sm pull-right" onclick="todo.clear();">
+                            <span class="glyphicon glyphicon-remove-sign"></span> Clear Tasks
+                        </button>
                     </form>
                 </div>
 
